@@ -1,4 +1,4 @@
-import type {IFileSystem} from '@itookit/vfs-core';
+import type {IFileSystem} from '@nestos/vfs-core';
 import type {ImageSource} from './contracts.js';
 import {check, ImageProcessingError} from './validation.js';
 

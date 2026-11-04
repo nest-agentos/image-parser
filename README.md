@@ -1,13 +1,13 @@
-# @itookit/image-parser
+# @nestos/image-parser
 
 Browser image processing and a native DOM multi-image editing panel. Includes default maximum-edge resize (1024), constrained rectangle crop, and classical automatic document detection and manual four-corner perspective correction through Scanic 1.7.1. No OCR, annotation, history stack, ML detection or CDN assets are enabled.
 
 Repository: `git@github.com:nest-agentos/image-parser.git`.
 
-For source consumption, add this directory to a pnpm workspace and depend on `@itookit/image-parser: workspace:*`; a TypeScript-aware bundler resolves the source exports. For standalone package consumption, run `pnpm install`, `pnpm build`, then `pnpm pack` in this repository and install the generated tarball with npm. Published artifacts use compiled exports and require no workspace aliases. Install the registry package with `npm install @itookit/image-parser@0.2.0`.
+For source consumption, add this directory to a pnpm workspace and depend on `@nestos/image-parser: workspace:*`; a TypeScript-aware bundler resolves the source exports. For standalone package consumption, run `pnpm install`, `pnpm build`, then `pnpm pack` in this repository and install the generated tarball with npm. Published artifacts use compiled exports and require no workspace aliases. Install the registry package with `npm install @nestos/image-parser@0.2.0`.
 
 ```ts
-import {createImageProcessor, createBlobSource, DEFAULT_IMAGE_SPEC} from '@itookit/image-parser';
+import {createImageProcessor, createBlobSource, DEFAULT_IMAGE_SPEC} from '@nestos/image-parser';
 
 const processor = createImageProcessor();
 const source = createBlobSource(file, {id: 'photo-1', revision: '1', name: file.name});
@@ -23,8 +23,8 @@ Use `resize: {mode: 'original'}` to retain dimensions or `{mode: 'max-edge', max
 ## Multi-image UI
 
 ```ts
-import {createImageEditor} from '@itookit/image-parser/ui';
-import '@itookit/image-parser/style.css';
+import {createImageEditor} from '@nestos/image-parser/ui';
+import '@nestos/image-parser/style.css';
 
 const editor = createImageEditor(container, {
   processor,
@@ -49,7 +49,7 @@ The panel owns one active image plane and a multi-image navigation strip. Switch
 
 ## Optional VFS adapter
 
-Import `createVfsImageSource` from `@itookit/image-parser/vfs` and supply an authorized `IFileSystem`, fixed path and resource-specific revision reader. The root/UI entries have no VFS dependency. The adapter does not infer projects, write files, release the filesystem, or treat transport errors as missing files.
+Import `createVfsImageSource` from `@nestos/image-parser/vfs` and supply an authorized `IFileSystem`, fixed path and resource-specific revision reader. The root/UI entries have no VFS dependency. The adapter does not infer projects, write files, release the filesystem, or treat transport errors as missing files.
 
 ## Limits and lifecycle
 
@@ -95,6 +95,6 @@ Use `IMAGE_PARSER_CPU_RATE=4 IMAGE_PARSER_MOBILE=1` for a sequential Chromium st
 
 ## Portable output recipes
 
-`ProcessOptions.recipe` accepts a version-one `ImageRecipe`: resize policy, preserve/grayscale/threshold color, optional threshold (0–255), and output MIME/quality/minQuality/maxBytes. `@itookit/image-parser/processing` exports the pure contract, validator and bounded quality schedule for host adapters without loading Canvas or Scanic. Recipes always render from the immutable original; they encode at most five quality levels from the same final pixels and reject an unmet byte budget without shrinking further. PNG uses a single encode. Recipe resize overrides the legacy resize option. Browser and native adapters record their own versions; their encoded bytes need not match.
+`ProcessOptions.recipe` accepts a version-one `ImageRecipe`: resize policy, preserve/grayscale/threshold color, optional threshold (0–255), and output MIME/quality/minQuality/maxBytes. `@nestos/image-parser/processing` exports the pure contract, validator and bounded quality schedule for host adapters without loading Canvas or Scanic. Recipes always render from the immutable original; they encode at most five quality levels from the same final pixels and reject an unmet byte budget without shrinking further. PNG uses a single encode. Recipe resize overrides the legacy resize option. Browser and native adapters record their own versions; their encoded bytes need not match.
 
 Run `IMAGE_PARSER_BROWSER_FIXTURE=examples/processing.html pnpm test:browser` for real grayscale, threshold, output-budget and original-preservation checks.

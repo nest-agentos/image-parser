@@ -1,5 +1,5 @@
 {
-  "name": "@itookit/image-parser",
+  "name": "@nestos/image-parser",
   "version": "0.3.0",
   "description": "Browser image resize, crop, perspective correction and native DOM multi-image editor",
   "type": "module",
@@ -61,10 +61,10 @@
     "scanic": "1.7.1"
   },
   "peerDependencies": {
-    "@itookit/vfs-core": "^5.3.3"
+    "@nestos/vfs-core": "^5.3.3"
   },
   "peerDependenciesMeta": {
-    "@itookit/vfs-core": {
+    "@nestos/vfs-core": {
       "optional": true
     }
   },
@@ -75,7 +75,7 @@
     "vitest": "^1.6.1",
     "jsdom": "^27.4.0",
     "@types/node": "^20.19.25",
-    "@itookit/vfs-core": "^5.3.3"
+    "@nestos/vfs-core": "^5.3.3"
   },
   "license": "MIT",
   "engines": {
@@ -83,9 +83,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nest-agentos/image-parser.git"
+    "url": "git+https://github.com/nest-agentos/image-parser.git"
   },
-  "homepage": "https://github.com/nest-agentos/image-parser",
+  "homepage": "https://github.com/nest-agentos/image-parser#readme",
   "bugs": {
     "url": "https://github.com/nest-agentos/image-parser/issues"
   }

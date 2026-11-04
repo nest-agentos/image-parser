@@ -5,7 +5,7 @@ import {resolve} from 'node:path';
 export default defineConfig({
     build: {lib: {entry: {processing: resolve(__dirname, 'src/processing.ts'), index: resolve(__dirname, 'src/index.ts'), ui: resolve(__dirname, 'src/ui.ts'), vfs: resolve(__dirname, 'src/vfs.ts')},
         formats: ['es', 'cjs'], fileName: (format, name) => `${name}.${format === 'es' ? 'js' : 'cjs'}`},
-        sourcemap: true, cssCodeSplit: false, rollupOptions: {external: ['scanic', '@itookit/vfs-core'],
+        sourcemap: true, cssCodeSplit: false, rollupOptions: {external: ['scanic', '@nestos/vfs-core'],
             output: {assetFileNames: asset => asset.name?.endsWith('.css') ? 'style.css' : '[name][extname]'}}},
     plugins: [dts({entryRoot: 'src', outDir: 'dist'})],
 });
