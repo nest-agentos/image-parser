@@ -1,0 +1,92 @@
+{
+  "name": "@itookit/image-parser",
+  "version": "0.3.0",
+  "description": "Browser image resize, crop, perspective correction and native DOM multi-image editor",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./ui": "./src/ui.ts",
+    "./vfs": "./src/vfs.ts",
+    "./style.css": "./src/style.css",
+    "./processing": "./src/processing.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      },
+      "./ui": {
+        "types": "./dist/ui.d.ts",
+        "import": "./dist/ui.js",
+        "require": "./dist/ui.cjs"
+      },
+      "./vfs": {
+        "types": "./dist/vfs.d.ts",
+        "import": "./dist/vfs.js",
+        "require": "./dist/vfs.cjs"
+      },
+      "./style.css": "./dist/style.css",
+      "./processing": {
+        "types": "./dist/processing.d.ts",
+        "import": "./dist/processing.js",
+        "require": "./dist/processing.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "vite build && node scripts/check-package.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepack": "pnpm build",
+    "test:browser": "node scripts/browser-test.mjs",
+    "test:detector": "node scripts/validate-paper-detector.mjs"
+  },
+  "dependencies": {
+    "scanic": "1.7.1"
+  },
+  "peerDependencies": {
+    "@itookit/vfs-core": "^5.3.3"
+  },
+  "peerDependenciesMeta": {
+    "@itookit/vfs-core": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^1.6.1",
+    "jsdom": "^27.4.0",
+    "@types/node": "^20.19.25",
+    "@itookit/vfs-core": "^5.3.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nest-agentos/image-parser.git"
+  },
+  "homepage": "https://github.com/nest-agentos/image-parser",
+  "bugs": {
+    "url": "https://github.com/nest-agentos/image-parser/issues"
+  }
+}
