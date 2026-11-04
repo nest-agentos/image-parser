@@ -1,6 +1,6 @@
 {
   "name": "@nestos/image-parser",
-  "version": "0.3.0",
+  "version": "0.5.1",
   "description": "Browser image resize, crop, perspective correction and native DOM multi-image editor",
   "type": "module",
   "main": "./src/index.ts",
@@ -61,7 +61,7 @@
     "scanic": "1.7.1"
   },
   "peerDependencies": {
-    "@nestos/vfs-core": "^5.3.3"
+    "@nestos/vfs-core": "^0.5.1"
   },
   "peerDependenciesMeta": {
     "@nestos/vfs-core": {
@@ -75,7 +75,7 @@
     "vitest": "^1.6.1",
     "jsdom": "^27.4.0",
     "@types/node": "^20.19.25",
-    "@nestos/vfs-core": "^5.3.3"
+    "@nestos/vfs-core": "^0.5.1"
   },
   "license": "MIT",
   "engines": {
